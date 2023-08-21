@@ -39,7 +39,7 @@ Product.propTypes = {
   name: PropTypes.string,
   price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   SKU: PropTypes.string,
-  children: PropTypes.node, // Add PropTypes for children
+  children: PropTypes.node, 
   id: PropTypes.number.isRequired,
 };
 
