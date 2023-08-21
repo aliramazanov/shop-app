@@ -7,4 +7,5 @@ This React Application simulates an Online Shop Experience, where you can:
  - Discover products
  - Add them to Favourites
  - Add them to Basket
- - Gain more knowledge about the Company <br/>
+ - Remove from the Basket
+ - Gain more knowledge about the Company 
