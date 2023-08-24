@@ -1,0 +1,14 @@
+.header-component-wrapper {
+  color: navy;
+  user-select: none;
+  margin-right: 5rem;
+
+  h1 {
+    text-align: center;
+    font-family: "Against", sans-serif;
+    user-select: none;
+    margin-left: 5%;
+    font-size: 2.6rem;
+    text-shadow: 1px 1px 1px azure;
+  }
+}

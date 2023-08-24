@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Favourites from "./pages/Favourites";
 import Basket from "./pages/Basket";
 import About from "./pages/About";
+import Header from "./components/Header/Header";
 
 import "./App.scss";
 
@@ -90,9 +91,7 @@ function App() {
       <BrowserRouter>
         <header>
           <div className="header-wrapper">
-            <div className="header-text-wrapper">
-              <h1>Hobby Shop</h1>
-            </div>
+            <Header />
             <div className="routes">
               <NavLink className="navlinks" to="/">
                 Home

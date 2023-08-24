@@ -4,20 +4,14 @@
   justify-content: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  .header-text-wrapper {
-    font-size: 1.4rem;
-    color: navy;
-    text-align: center;
-    font-family: "Against", sans-serif;
-    user-select: none;
-    margin-right: 5rem;
-  }
+
   .routes {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
   }
+
   .navlinks {
     background-color: white;
     width: 10rem;
