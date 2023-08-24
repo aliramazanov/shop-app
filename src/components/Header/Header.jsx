@@ -1,6 +1,5 @@
 import "./Header.scss";
 import React from "react";
-import PropTypes from "prop-types";
 
 const Header = () => {
   return (
@@ -8,11 +7,6 @@ const Header = () => {
       <h1>Hobby Shop</h1>
     </div>
   );
-};
-
-Header.propTypes = {
-  favouritesCount: PropTypes.number.isRequired,
-  basketCount: PropTypes.number.isRequired,
 };
 
 export default Header;
