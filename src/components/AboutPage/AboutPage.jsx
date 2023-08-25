@@ -1,10 +1,10 @@
-import "./aboutpage.scss";
 import ConfettiButton from "../Confetti/ConfettiButton";
 import Team from "./images/team.jpg";
 import Work from "./images/work.jpg";
 import Valley from "./images/valley.jpg";
+import "./aboutpage.scss";
 
-function AboutPage() {
+export default function AboutPage() {
   return (
     <div className="about-page">
       <div className="about-header">
@@ -36,5 +36,3 @@ function AboutPage() {
     </div>
   );
 }
-
-export default AboutPage;
