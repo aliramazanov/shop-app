@@ -31,7 +31,6 @@
   }
 
   .remove-button {
-    cursor: pointer;
     padding: 0.6rem;
     text-align: center;
     border: 1px transparent;
@@ -39,5 +38,9 @@
     color: white;
     background-color: crimson;
     box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
+  }
+  .remove-button:hover {
+    cursor: pointer;
+    background-color: red;
   }
 }
