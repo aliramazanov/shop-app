@@ -12,13 +12,9 @@ export default function Product({
   favourites,
   product,
   removeProduct,
-  key,
 }) {
   return (
-    <div
-      className={`product-component-wrapper ${backgroundColor}`}
-      key={key}
-    >
+    <div className={`product-component-wrapper ${backgroundColor}`}>
       <div className="product-image-wrapper">
         <img src={product.imgPath} alt="Product Image" />
       </div>
