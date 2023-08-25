@@ -30,7 +30,7 @@
 
       .header-of-modal {
         font-size: 1.8rem;
-        color: black;
+        color: white;
       }
     }
 
@@ -66,6 +66,7 @@
           border-radius: 3rem;
           background-color: lightsteelblue;
           box-shadow: 1px 1px 1rem rgba(0, 0, 0, 0.3);
+          color: white;
         }
         .modal-action-buttons:hover {
           cursor: pointer;
