@@ -1,7 +1,11 @@
 import PropTypes from "prop-types";
 import "./Modal.scss";
 
-const Modal = ({ details, closeModal, handleContinueButtonClick }) => {
+export default function Modal({
+  details,
+  closeModal,
+  handleContinueButtonClick,
+}) {
   if (!details) {
     return null;
   }
@@ -35,7 +39,7 @@ const Modal = ({ details, closeModal, handleContinueButtonClick }) => {
       </div>
     </div>
   );
-};
+}
 
 Modal.propTypes = {
   details: PropTypes.shape({
@@ -47,5 +51,3 @@ Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   handleContinueButtonClick: PropTypes.func.isRequired,
 };
-
-export default Modal;

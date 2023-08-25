@@ -9,7 +9,7 @@ import About from "./pages/About";
 import Header from "./components/Header/Header";
 import "./App.scss";
 
-function App() {
+export default function App() {
   const [products, setProducts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentModalData, setCurrentModalData] = useState(null);
@@ -159,5 +159,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

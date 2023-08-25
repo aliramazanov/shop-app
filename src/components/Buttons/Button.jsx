@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./Button.scss";
 
-function Button({ backgroundColor, onClick, text }) {
+export default function Button({ backgroundColor, onClick, text }) {
   return (
     <button
       className="button-component"
@@ -18,5 +18,3 @@ Button.propTypes = {
   onClick: PropTypes.func,
   text: PropTypes.string,
 };
-
-export default Button;
