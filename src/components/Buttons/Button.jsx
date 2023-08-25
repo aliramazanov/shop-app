@@ -1,5 +1,5 @@
-import "./Button.scss";
 import PropTypes from "prop-types";
+import "./Button.scss";
 
 function Button({ backgroundColor, onClick, text }) {
   return (

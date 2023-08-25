@@ -7,7 +7,7 @@ function FavButton({ isFavourite, onClick }) {
       className={`custom-button ${isFavourite ? "favourite" : ""}`}
       onClick={onClick}
     >
-      {isFavourite ? "★" : "☆"}
+      {isFavourite ? "❤️" : "🖤"}
     </button>
   );
 }

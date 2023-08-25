@@ -1,4 +1,3 @@
-import React from "react";
 import ProductList from "../components/ProductList/ProductList";
 import Welcome from "../components/Welcome/Welcome";
 import Modal from "../components/Modal/Modal";
@@ -14,11 +13,11 @@ export default function Home({
   handleContinueButtonClick,
   selectedProduct,
 }) {
-  console.log(isModalOpen);
   return (
     <div>
       <Welcome />
       <ProductList
+        isBasketPage={false}
         favourites={favourites}
         products={products}
         handleOpenModalButton={handleOpenModalButton}

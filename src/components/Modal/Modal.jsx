@@ -1,5 +1,5 @@
-import "./Modal.scss";
 import PropTypes from "prop-types";
+import "./Modal.scss";
 
 const Modal = ({ details, closeModal, handleContinueButtonClick }) => {
   if (!details) {

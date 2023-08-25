@@ -2,7 +2,7 @@ const modalData = [
   {
     id: "modalOne",
     header: "Confirmation Message",
-    text: "Do you confirm adding this item to the basket?",
+    text: "Do you confirm adding this item to the basket? You can later remove it from the Basket page.",
     renderButton: true,
     actions: (closeModal, handleContinueButtonClick) => (
       <div>

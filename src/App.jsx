@@ -7,7 +7,6 @@ import Favourites from "./pages/Favourites";
 import Basket from "./pages/Basket";
 import About from "./pages/About";
 import Header from "./components/Header/Header";
-
 import "./App.scss";
 
 function App() {
@@ -17,11 +16,6 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [basket, setBasket] = useState([]);
   const [favourites, setFavourites] = useState([]);
-
-  useEffect(() => {
-    localStorage.setItem("basket", JSON.stringify([]));
-    localStorage.setItem("favourites", JSON.stringify([]));
-  });
 
   useEffect(() => {
     fetchData()
@@ -36,36 +30,31 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("basket", JSON.stringify(basket));
-    localStorage.setItem("favourites", JSON.stringify(favourites));
-  }, [basket, favourites]);
+    const storedBasket = JSON.parse(localStorage.getItem("basket")) ?? [];
+    const storedFavourites =
+      JSON.parse(localStorage.getItem("favourites")) ?? [];
 
-  const handleContinueButtonClick = () => {
-    const updatedBasket = [...basket, selectedProduct];
-    console.log(updatedBasket);
-    localStorage.setItem("basket", updatedBasket);
-    setBasket(updatedBasket);
-    setIsModalOpen(false);
-    setCurrentModalData(null);
-    setSelectedProduct(null);
-  };
+    setBasket(storedBasket);
+    setFavourites(storedFavourites);
+  }, []);
 
   const toggleFavourite = (product) => {
     setFavourites((prevFavourites) => {
-      const existingFavourite = prevFavourites.find(
+      const isAlreadyFavourite = prevFavourites.some(
         (item) => item.id === product.id
       );
-
-      if (existingFavourite) {
-        return prevFavourites.filter((item) => item.id !== product.id);
-      } else {
-        return [...prevFavourites, product];
-      }
+      const updatedFavourites = isAlreadyFavourite
+        ? prevFavourites.filter((item) => item.id !== product.id)
+        : [...prevFavourites, product];
+      localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
+      return updatedFavourites;
     });
   };
 
+  const findModalDataById = (modalId) =>
+    modalData.find(({ id }) => id === modalId);
+
   const handleOpenModalButton = (modalId, product) => {
-    console.log(modalId);
     const modalDataItem = findModalDataById(modalId);
     setSelectedProduct(product);
     setIsModalOpen(true);
@@ -77,13 +66,23 @@ function App() {
     setCurrentModalData(null);
   };
 
-  const findModalDataById = (modalId) => {
-    return modalData.find(({ id }) => id === modalId);
+  const handleContinueButtonClick = () => {
+    setBasket((prevBasket) => {
+      const updatedBasket = [...prevBasket, selectedProduct];
+      localStorage.setItem("basket", JSON.stringify(updatedBasket));
+      return updatedBasket;
+    });
+    setIsModalOpen(false);
   };
 
   const removeProduct = (productId) => {
-    const updatedBasket = basket.filter((item) => item.id !== productId);
-    setBasket(updatedBasket);
+    const indexToRemove = basket.findIndex((item) => item.id === productId);
+    if (indexToRemove !== -1) {
+      const updatedBasket = basket.slice();
+      updatedBasket.splice(indexToRemove, 1);
+      setBasket(updatedBasket);
+      localStorage.setItem("basket", JSON.stringify(updatedBasket));
+    }
   };
 
   return (
@@ -130,9 +129,14 @@ function App() {
               path="/favourites"
               element={
                 <Favourites
+                  isModalOpen={isModalOpen}
                   favourites={favourites}
+                  products={favourites}
+                  currentModalData={currentModalData}
+                  closeModal={handleClosingOfModal}
                   toggleFavourite={toggleFavourite}
                   handleOpenModalButton={handleOpenModalButton}
+                  handleContinueButtonClick={handleContinueButtonClick}
                 />
               }
             />
@@ -141,12 +145,13 @@ function App() {
               element={
                 <Basket
                   basket={basket}
+                  products={products}
                   toggleFavourite={toggleFavourite}
                   favourites={favourites}
                   removeProduct={removeProduct}
                 />
               }
-            />{" "}
+            />
             <Route path="/about" element={<About />} />
           </Routes>
         </main>

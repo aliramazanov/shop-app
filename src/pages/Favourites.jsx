@@ -1,9 +1,18 @@
 import React from "react";
 import ProductList from "../components/ProductList/ProductList";
 import PropTypes from "prop-types";
+import Modal from "../components/Modal/Modal";
 import "./PageStyles.scss";
 
-export default function Favourites({ favourites, toggleFavourite }) {
+export default function Favourites({
+  favourites,
+  toggleFavourite,
+  handleOpenModalButton,
+  isModalOpen,
+  currentModalData,
+  closeModal,
+  handleContinueButtonClick,
+}) {
   return (
     <div className="favourites-page">
       <h2 className="pages-hero">Discover Your Exquisite Collection</h2>
@@ -11,7 +20,16 @@ export default function Favourites({ favourites, toggleFavourite }) {
         products={favourites}
         toggleFavourite={toggleFavourite}
         favourites={favourites}
+        isBasketPage={false}
+        handleOpenModalButton={handleOpenModalButton}
       />
+      {isModalOpen && (
+        <Modal
+          details={currentModalData}
+          closeModal={closeModal}
+          handleContinueButtonClick={handleContinueButtonClick}
+        />
+      )}
     </div>
   );
 }
