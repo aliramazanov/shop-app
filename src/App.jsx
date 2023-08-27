@@ -110,6 +110,7 @@ export default function App() {
                 />
               }
             />
+
             <Route
               path="/favourites"
               element={
@@ -125,6 +126,7 @@ export default function App() {
                 />
               }
             />
+
             <Route
               path="/basket"
               element={
@@ -137,6 +139,7 @@ export default function App() {
                 />
               }
             />
+
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
