@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Route, Routes, BrowserRouter, NavLink } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { fetchData } from "./api";
 import modalData from "./modalData.jsx";
 import Home from "./pages/Home";
@@ -7,7 +7,6 @@ import Favourites from "./pages/Favourites";
 import Basket from "./pages/Basket";
 import About from "./pages/About";
 import Header from "./components/Header/Header";
-import "./App.scss";
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -90,21 +89,7 @@ export default function App() {
       <BrowserRouter>
         <header>
           <div className="header-wrapper">
-            <Header />
-            <div className="routes">
-              <NavLink className="navlinks" to="/">
-                Home
-              </NavLink>
-              <NavLink className="navlinks" to="/favourites">
-                Favourites: {favourites.length}
-              </NavLink>
-              <NavLink className="navlinks" to="/basket">
-                Basket: {basket.length}
-              </NavLink>
-              <NavLink className="navlinks" to="/about">
-                About
-              </NavLink>
-            </div>
+            <Header basket={basket} favourites={favourites} />
           </div>
         </header>
 
