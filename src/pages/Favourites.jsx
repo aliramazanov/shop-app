@@ -1,4 +1,3 @@
-import React from "react";
 import ProductList from "../components/ProductList/ProductList";
 import PropTypes from "prop-types";
 import Modal from "../components/Modal/Modal";
